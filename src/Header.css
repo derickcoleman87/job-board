@@ -1,0 +1,4 @@
+header {
+  background-color: linear-gradient (var(--purple), var(--dark-purple));
+  padding: 20px;
+}
