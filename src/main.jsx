@@ -1,10 +1,21 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import React from "react";
+import "./Main.css";
+import Job from "./Job.jsx";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+function main() {
+  return (
+    <div className="main">
+      <Job />
+      <Job />
+      <Job />
+      <Job />
+      <Job />
+      <Job />
+      <Job />
+      <Job />
+      <Job />
+    </div>
+  );
+}
+
+export default main;

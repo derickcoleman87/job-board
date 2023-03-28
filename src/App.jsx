@@ -1,10 +1,14 @@
 import "./App.css";
-import "./Header.jsx";
+import Header from "./Header.jsx";
+import Main from "./Main.jsx";
+import React, { useState } from "react";
 
 function App() {
+  const [mode, setMode] = useState("light");
   return (
     <div className="App">
-      <Header />
+      <Header mode={mode} setMode={setMode} />
+      <Main mode={mode} />
     </div>
   );
 }

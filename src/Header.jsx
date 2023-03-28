@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 
-function Header() {
+let mode = "dark";
+
+function Header({ mode, setMode }) {
   return (
-    <header>
-      <h1>devjobs</h1>
-      <div>slider</div>
+    <header className={mode === "dark" ? "header-dark" : "header-light"}>
+      <div className="header_top-row">
+        <h1>devjobs</h1>
+        <button onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
+          {mode} mode
+        </button>
+      </div>
       <div className="search-container">
         <div>
           <input
