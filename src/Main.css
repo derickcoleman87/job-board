@@ -1,6 +1,16 @@
-.main {
+main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
+}
+
+.main--light {
+  background-color: var(--light-gray);
+  color: black;
+}
+
+.main--dark {
+  background-color: black;
+  color: white;
 }

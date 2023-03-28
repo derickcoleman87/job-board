@@ -1,14 +1,14 @@
 import React from "react";
 import "./Job.css";
 
-function Job() {
+function Job({ data }) {
   return (
     <div className="job">
-      <span className="time-created">5h ago</span>
-      <span className="duration">Full Time</span>
-      <h3 className="title">Senior Software Engineer</h3>
-      <p className="company">Scoot</p>
-      <p className="country">United Kingdom</p>
+      <span className="time-created">{data.timeCreated}</span>
+      <span className="duration">{data.duration}</span>
+      <h3 className="title">{data.title}</h3>
+      <p className="company">{data.company}</p>
+      <p className="country">{data.country}</p>
     </div>
   );
 }

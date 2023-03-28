@@ -1,21 +1,15 @@
 import React from "react";
 import "./Main.css";
-import Job from "./Job.jsx";
+import Job from "./Job";
 
-function main() {
+function Main({ mode, jobData }) {
   return (
-    <div className="main">
-      <Job />
-      <Job />
-      <Job />
-      <Job />
-      <Job />
-      <Job />
-      <Job />
-      <Job />
-      <Job />
-    </div>
+    <main className={mode === "dark" ? "main--dark" : "main--light"}>
+      {jobData.map((job) => (
+        <Job data={job} />
+      ))}
+    </main>
   );
 }
 
-export default main;
+export default Main;
