@@ -5,6 +5,7 @@ import React, { useState } from "react";
 
 let jobData = [
   {
+    id: 1,
     timeCreated: "5h ago",
     duration: "Full Time",
     title: "Senior Software Engineer",
@@ -12,6 +13,7 @@ let jobData = [
     country: "United Kingdom",
   },
   {
+    id: 2,
     timeCreated: "20h ago",
     duration: "Part Time",
     title: "Hakell and PureScript Dev",
@@ -19,6 +21,7 @@ let jobData = [
     country: "United States",
   },
   {
+    id: 3,
     timeCreated: "1d ago",
     duration: "Part Time",
     title: "Midlevel Back End Engineer",
@@ -26,6 +29,7 @@ let jobData = [
     country: "Russia",
   },
   {
+    id: 4,
     timeCreated: "2d ago",
     duration: "Full Time",
     title: "Senior Application Engineer",
@@ -33,6 +37,7 @@ let jobData = [
     country: "Japan",
   },
   {
+    id: 5,
     timeCreated: "2d ago",
     duration: "Part Time",
     title: "Remote DevOps Engineer",
@@ -40,6 +45,7 @@ let jobData = [
     country: "Thailand",
   },
   {
+    id: 6,
     timeCreated: "4d ago",
     duration: "Part Time",
     title: "Desktop Support Manager",
@@ -47,6 +53,7 @@ let jobData = [
     country: "Germany",
   },
   {
+    id: 7,
     timeCreated: "1w ago",
     duration: "Full Time",
     title: "iOS Engineer",
@@ -54,6 +61,7 @@ let jobData = [
     country: "United States",
   },
   {
+    id: 8,
     timeCreated: "1w ago",
     duration: "Full Time",
     title: "Senior EJB Developer",
@@ -61,6 +69,7 @@ let jobData = [
     country: "United Kingdom",
   },
   {
+    id: 9,
     timeCreated: "1w ago",
     duration: "Part Time",
     title: "Senior Frontend Developer",
@@ -70,10 +79,17 @@ let jobData = [
 ];
 function App() {
   const [mode, setMode] = useState("light");
+  const [jobsToShow, setJobsToShow] = useState(jobData);
+  function searchJobs() {
+    let jobs = [];
+    // loop thru jobData based on search fields and push to jobs array
+
+    setJobsToShow(jobs);
+  }
   return (
     <div className="App">
-      <Header mode={mode} setMode={setMode} />
-      <Main mode={mode} jobData={jobData} />
+      <Header mode={mode} setMode={setMode} searchJobs={searchJobs} />
+      <Main mode={mode} jobData={jobsToShow} />
     </div>
   );
 }

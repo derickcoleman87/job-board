@@ -3,7 +3,11 @@ import "./Header.css";
 
 let mode = "dark";
 
-function Header({ mode, setMode }) {
+function Header({ mode, setMode, searchJobs }) {
+  const [nameInput, setNameInput] = useState("");
+  const [location, setLocation] = useState("");
+  const [checked, setChecked] = useState(false);
+
   return (
     <header className={mode === "dark" ? "header-dark" : "header-light"}>
       <div className="header_top-row">
@@ -12,9 +16,16 @@ function Header({ mode, setMode }) {
           {mode} mode
         </button>
       </div>
-      <div className="search-container">
+      <form
+        className="search-container"
+        onSubmit={() => {
+          searchJobs();
+        }}
+      >
         <div>
           <input
+            value={nameInput}
+            onChange={(e) => setNameInput(e.target.value)}
             type="text"
             placeholder="Filter by title, companies, expertise.."
           />
@@ -27,7 +38,7 @@ function Header({ mode, setMode }) {
           <span>Full Time Only</span>
           <button>Search</button>
         </div>
-      </div>
+      </form>
     </header>
   );
 }

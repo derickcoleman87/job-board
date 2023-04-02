@@ -6,7 +6,7 @@ function Main({ mode, jobData }) {
   return (
     <main className={mode === "dark" ? "main--dark" : "main--light"}>
       {jobData.map((job) => (
-        <Job data={job} />
+        <Job data={job} key={job.id} />
       ))}
     </main>
   );
