@@ -80,10 +80,15 @@ let jobData = [
 function App() {
   const [mode, setMode] = useState("light");
   const [jobsToShow, setJobsToShow] = useState(jobData);
-  function searchJobs() {
+  function searchJobs(searchText) {
+    console.log(searchText);
     let jobs = [];
     // loop thru jobData based on search fields and push to jobs array
-
+    for (let i = 0; i < jobData.length; i++) {
+      if (jobData[i].title.includes(searchText)) {
+        jobs.push(jobData[i]);
+      }
+    }
     setJobsToShow(jobs);
   }
   return (

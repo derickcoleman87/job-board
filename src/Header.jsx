@@ -4,7 +4,7 @@ import "./Header.css";
 let mode = "dark";
 
 function Header({ mode, setMode, searchJobs }) {
-  const [nameInput, setNameInput] = useState("");
+  const [searchText, setSearchText] = useState("");
   const [location, setLocation] = useState("");
   const [checked, setChecked] = useState(false);
 
@@ -18,14 +18,15 @@ function Header({ mode, setMode, searchJobs }) {
       </div>
       <form
         className="search-container"
-        onSubmit={() => {
-          searchJobs();
+        onSubmit={(event) => {
+          event.preventDefault();
+          searchJobs(searchText);
         }}
       >
         <div>
           <input
-            value={nameInput}
-            onChange={(e) => setNameInput(e.target.value)}
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
             type="text"
             placeholder="Filter by title, companies, expertise.."
           />
