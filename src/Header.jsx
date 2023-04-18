@@ -3,7 +3,7 @@ import "./Header.css";
 
 let mode = "dark";
 
-function Header({ mode, setMode, searchJobs }) {
+function Header({ mode, setMode, searchJobs, isChecked }) {
   const [searchText, setSearchText] = useState("");
   const [location, setLocation] = useState("");
   const [checked, setChecked] = useState(false);
@@ -20,7 +20,7 @@ function Header({ mode, setMode, searchJobs }) {
         className="search-container"
         onSubmit={(event) => {
           event.preventDefault();
-          searchJobs(searchText);
+          searchJobs(searchText, location, checked);
         }}
       >
         <div>
@@ -32,10 +32,21 @@ function Header({ mode, setMode, searchJobs }) {
           />
         </div>
         <div>
-          <input type="text" placeholder="filter by location.." />
+          <input
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            type="text"
+            placeholder="filter by location.."
+          />
         </div>
         <div>
-          <input type="checkbox" name="" id="" />
+          <input
+            value={checked}
+            onChange={(e) => setChecked(e.target.value)}
+            type="checkbox"
+            name=""
+            id=""
+          />
           <span>Full Time Only</span>
           <button>Search</button>
         </div>
