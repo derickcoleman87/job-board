@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
+import { AiOutlineSearch } from "react-icons/ai";
 
 let mode = "dark";
 
@@ -24,6 +25,7 @@ function Header({ mode, setMode, searchJobs, isChecked }) {
         }}
       >
         <div>
+          <AiOutlineSearch />
           <input
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
@@ -36,10 +38,10 @@ function Header({ mode, setMode, searchJobs, isChecked }) {
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             type="text"
-            placeholder="filter by location.."
+            placeholder="Filter by location.."
           />
         </div>
-        <div>
+        <div className="search">
           <input
             value={checked}
             onChange={(e) => setChecked(e.target.value)}
@@ -48,7 +50,7 @@ function Header({ mode, setMode, searchJobs, isChecked }) {
             id=""
           />
           <span>Full Time Only</span>
-          <button>Search</button>
+          <button className="search-btn">Search</button>
         </div>
       </form>
     </header>
