@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Header.css";
 import { AiOutlineSearch } from "react-icons/ai";
+import { IoLocationSharp } from "react-icons/io5";
+import { BsLightbulb } from "react-icons/bs";
 
 let mode = "dark";
 
@@ -14,7 +16,7 @@ function Header({ mode, setMode, searchJobs, isChecked }) {
       <div className="header_top-row">
         <h1>devjobs</h1>
         <button onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
-          {mode} mode
+          <BsLightbulb />
         </button>
       </div>
       <form
@@ -24,8 +26,8 @@ function Header({ mode, setMode, searchJobs, isChecked }) {
           searchJobs(searchText, location, checked);
         }}
       >
-        <div>
-          <AiOutlineSearch />
+        <div className="search-input">
+          <AiOutlineSearch className="search-icon" />
           <input
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
@@ -33,7 +35,8 @@ function Header({ mode, setMode, searchJobs, isChecked }) {
             placeholder="Filter by title, companies, expertise.."
           />
         </div>
-        <div>
+        <div className="location-div">
+          <IoLocationSharp className="location-icon" />
           <input
             value={location}
             onChange={(e) => setLocation(e.target.value)}
@@ -43,13 +46,14 @@ function Header({ mode, setMode, searchJobs, isChecked }) {
         </div>
         <div className="search">
           <input
+            className="checkbox"
             value={checked}
             onChange={(e) => setChecked(e.target.value)}
             type="checkbox"
-            name=""
-            id=""
+            name="full-time"
+            id="full-time"
           />
-          <span>Full Time Only</span>
+          <label for="full-time">Full Time Only</label>
           <button className="search-btn">Search</button>
         </div>
       </form>

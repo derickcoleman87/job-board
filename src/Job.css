@@ -2,3 +2,10 @@
   width: 200px;
   margin-bottom: 20px;
 }
+
+.time-created,
+.duration {
+  color: #9b9fa4;
+  font-size: 14px;
+  font-weight: 500;
+}
