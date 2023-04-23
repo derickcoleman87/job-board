@@ -93,6 +93,7 @@ function App() {
   function searchJobs(searchText, location, checked) {
     console.log(searchText);
     console.log(location);
+    console.log(checked);
     let jobs = [];
     // loop thru jobData based on search fields and push to jobs array
     for (let i = 0; i < jobData.length; i++) {
@@ -101,7 +102,7 @@ function App() {
         jobData[i].country.includes(location)
       ) {
         // targeting checkbox to display full time jobs when checked. Not working
-        if (checked === true && jobData[i].isFullTime === true) {
+        if (!checked || (checked && jobData[i].isFullTime)) {
           jobs.push(jobData[i]);
         }
       }

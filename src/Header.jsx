@@ -48,12 +48,16 @@ function Header({ mode, setMode, searchJobs, isChecked }) {
           <input
             className="checkbox"
             value={checked}
-            onChange={(e) => setChecked(e.target.value)}
+            onChange={(e) => {
+              console.dir(e.target);
+
+              setChecked(e.target.checked);
+            }}
             type="checkbox"
             name="full-time"
             id="full-time"
           />
-          <label for="full-time">Full Time Only</label>
+          <label htmlFor="full-time">Full Time Only</label>
           <button className="search-btn">Search</button>
         </div>
       </form>
